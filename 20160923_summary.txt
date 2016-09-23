@@ -1,0 +1,56 @@
+javaScript
+问题：==和===的区别
+解答：==两边值先转换为同一类型，再比较。
+	  ===不做类型转换，直接比较。严格等于。类型和内容都相等则相等。
+	  ps：===对于对象来说，两个变量引用同一个对象或者函数，则相等。null和undefined不想等。
+	  特例：NaN与任何值不等，只能用isNaN()判断。
+	  判断相等只用===。
+	  说明一下==的规则。
+	  类型相等，进行===比较。
+	  null和undefined相等
+	  字符串和数字比，转换成数字再比
+	  true转换为1，false转换为0.在比较
+	  如果一个是对象，另一个是数值或字符串，把对象转换成基础类型的值再比较。对象转换成基础类型，
+	  利用它的toString或者valueOf方法。js核心内置类，会尝试valueOf先于toString；例外的是Date，
+	  Date利用的是toString转换。非js核心的对象，难说
+      任何其他组合，都不相等。
+
+问题：JSON.parse()和JSON.stringify()
+解答：JSON.parser() 将字符串转化为json对象
+	  JSON.stringify()将json对象转化为字符串
+
+问题：一个js文件引入另一个js文件
+解答：例如a.js引入b.js,a.js第一行写document.write("<script src='b.js'></script");即可。
+	  但是亲测发现，所写js必须封装成函数才行。若直接写js代码任然报错id not found。
+	  还有一中方法就是在引入a.js的html中（a.js引用前）加上b.js的引用。
+	  
+	  
+问题：使用bootstrap时报错 Uncaught Error: Bootstrap's JavaScript requires jQuery
+解答：因为bootstrap用到了jquery，所以使用bootstrap前要先导入jquery.js
+
+
+问题；js中this的用法
+解答：this永远指向其所在函数的所有者如果没有所有者时，指向window。
+
+问题：jsonp只能用get传递，可否用post
+解答：因为jsonp的原理是动态添加<script>标签使其可以跨域访问。而<script>请求数据是get方式。所以不可以post。
+
+问题：js闭包
+解答：
+
+node.js
+问题：node.js追加文件
+解答:使用fs模块的appendFile接口
+例子：
+var fs = require('fs');  
+var data = 'hello world';  
+fs.appendFile('./log.txt',data,'utf8',function(err){  
+    if(err)  
+    {  
+        console.log(err);  
+    }  
+});  
+
+
+	  
+	  
