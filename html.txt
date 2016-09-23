@@ -1,0 +1,60 @@
+<h1>~<h6>标题1-6，标题后有空行
+<p>段落
+<br/>换行
+<hr>行分割线
+<!--注释-->
+<!DOCTYPE html>第一行，定义该文件为html文件
+<html></html>html标记
+<head></head>网页头，<title>, <style>, <meta>, <link>, <script>, <noscript>, and <base>可添加到其中
+<title>网页标题
+<meta attr=value>没有关闭标签
+<base>所有连接的基准url，还可以定义target属性
+<link rel="stylesheet" type="text/css" href="">链接外部文件
+<style>定义样式
+
+<body></body>网页可见部分
+<b>粗体
+<i>斜体
+<sub>下标
+<sup>下标
+<strong>加重语气
+<em>着重文字
+<ins>插入字
+<del>删除字
+<code>计算机代码
+<address>定义地址
+<a href="url" target="_target">连接，地址，如何跳转_blank表示打开新页面跳转
+<a id="tips">有用的提示部分</a>
+<a href="#tips">访问有用的提示部分</a>
+请始终将正斜杠添加到子文件夹
+<img>url地址属性，alt 图像不显示的替代文本
+<table>表格<tr>表格的一行
+<th>一行中的一列
+<ol>有序列表
+<ul>无序列表
+<li>列表项
+大多数 HTML 元素被定义为块级元素或内联元素。
+块级元素在浏览器显示时，通常会以新行来开始（和结束）。
+内联元素在显示时通常不会以新行开始。
+实例: <b>, <td>, <a>, <img>
+HTML <div> 元素是块级元素，它可用于组合其他 HTML 元素的容器。
+<div> 元素没有特定的含义。除此之外，由于它属于块级元素，浏览器会在其前后显示折行。
+如果与 CSS 一同使用，<div> 元素可用于对大的内容块设置样式属性。
+<div> 元素的另一个常见的用途是文档布局。它取代了使用表格定义布局的老式方法。使用 <table> 元素进行文档布局不是表格的正确用法。<table> 元素的作用是显示表格化的数据。
+HTML <span> 元素是内联元素，可用作文本的容器
+<span> 元素也没有特定的含义。
+当与 CSS 一同使用时，<span> 元素可用于为部分文本设置样式属性
+<div><span><table>可以用于布局
+<input>type类型有checkbox，radio，password,submit
+在 HTML 中不能使用小于号（<）和大于号（>），这是因为浏览器会误认为它们是标签
+<  &lt;
+>  	&gt;
+& 	&amp;
+"	&quot;
+url格式
+scheme://host.domain:port/path/filename
+URL 只能使用 ASCII 字符集.
+来通过因特网进行发送。由于 URL 常常会包含 ASCII 集合之外的字符，URL 必须转换为有效的 ASCII 格式。
+URL 编码使用 "%" 其后跟随两位的十六进制数来替换非 ASCII 字符。
+URL 不能包含空格。URL 编码通常使用 + 来替换空格。
+

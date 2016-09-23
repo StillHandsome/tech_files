@@ -1,0 +1,5 @@
+1 net start mysql 启动mysql服务
+2 net stop mysql 停止mysql服务
+3 启动mysql服务后 mysql -uroot -p	密文输入密码并连接mysql
+4 show engines \G(;) 查询mysql支持的存储引擎
+
