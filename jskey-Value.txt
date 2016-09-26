@@ -1,4 +1,4 @@
-keycode  ¶ÔÓ¦¼ü
+keycode  å¯¹åº”é”®
 keycode    8 = BackSpace BackSpace 
 keycode    9 = Tab Tab 
 keycode   12 = Clear 
