@@ -5,7 +5,7 @@
 <!--注释-->
 <!DOCTYPE html>第一行，定义该文件为html文件
 <html></html>html标记
-<head></head>网页头，<title>, <style>, <meta>, <link>, <script>, <noscript>, and <base>可添加到其中
+<head></head>网页头，<title>, <meta>, <link>, <script>, <noscript>, and <base>可添加到其中
 <title>网页标题
 <meta attr=value>没有关闭标签
 <base>所有连接的基准url，还可以定义target属性
