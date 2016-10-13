@@ -1,0 +1,16 @@
+1 生成32位随机ID
+String uuid = UUID.randomUUID().toString().trim().replaceAll("-","");
+UUID中有固定的四个 ”-“，所以32位长。  
+128位是  二进制，  每四个二进制转一个16进制数。  128/4=32
+所以，就是32个16进制数的字符了。
+2 arraycopy()实现复制数组
+System.arraycopy(Object src,int srcIndex,Object aim,int aimIndex,int length)suoy索引从0开始
+3 保留两位小数
+       DecimalFormat format = new DecimalFormat("0.00");
+       String abc ="100.456";
+       String a = format.format(new BigDecimal(abc));
+       System.out.println(a);
+4 Random的nextInt(int i)方法的返回值
+    docs中说返回值是从0到i，不够准确。
+    返回值应该是 >=0 , <i,就是说永远也不会返回i。
+

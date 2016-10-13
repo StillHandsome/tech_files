@@ -1,0 +1,56 @@
+##说说javaScript中要注意的问题
+
+1. ==和===的区别
+
+	  ===，不做类型转换，直接比较。类型和内容都相等则相等。
+	  判断相等最好只用===。
+	  特例：NaN与任何值不等（包括NaN），只能用isNaN()判断。
+	    
+	  ==，两边值先转换为同一类型，再比较
+	  简单说明一下==的规则：
+	  * 类型相等，进行===比较。
+	  * 字符串和数字比较，转换成数字再比较。
+	  * true转换为1，false转换为0.再比较
+	  * 如果一个是对象，另一个是数值或字符串，把对象转换成基础类型的值再比较。对象转换成基础类型，利用它的toString或者valueOf方法。js会先尝试valueOf再toString；例外的是Date，Date利用的是toString转换。非js核心的对象，难说。
+      * 任何其他组合，都不相等。
+
+2.  一个js文件引入另一个js文件
+ 例如 a.js引入b.js，a.js第一行写上下列代码即可。
+  `document.write("<script src='b.js'></script")`
+	  还有一种通用做法就是在引入a.js的html中（引用a.js前）加上b.js的引用。
+	  ` <script src = "b.js"></script>`
+	  `<script src = "a.js"></script>`
+
+3. this的含义
+this永远指向其所在函数的所有者。如果没有所有者，则指向window，strict下则指向undefined。
+例如
+`var xx = {
+	name:'mike',
+    getName:func1
+                }
+function func1(){
+return this.name;
+}`
+只要不是xx.func1()引用的，fun1中的tihs指向window或者undefind（strict下）.
+解决方法1，fun1中第一行写下var that = this，再使用that。
+解决方法2，使用call或者apply。
+xx.func1.call(xx);//this指向xx
+xx.func1.apply(xx,[]);//this，使用apply进行元素罗列时需要使用中括号[]将所有参数包裹起来
+fun1中的函数（闭包）中的this也是指向window或者underfind（strict）。
+
+4. Javascript闭包
+      先解释一个概念， 链式作用域：子对象可以一级一级寻找父对象的变量。父对象的变量对子对象可见。
+	  闭包：外部读取不了内部函数的变量，只要在内部函数里再定义一个内部函数，通过 返回它，就可以实现内部函数的变量被外部读取。闭包连接了函数外部和函数内部。
+	  闭包还有一个作用，让变量留在内存中。a函数包含b函数，返回b函数。b赋值给c变量。c变量是一个外部变量，导致b一直在内存中，a是b的依赖函数，所以也在内存中。所以a,b都在内存中，不会被回收。
+	  注意：闭包会导致内存消耗大，不能滥用。退出函数前，删除不使用的局部变量、
+	  闭包会改变父函数的内部值，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时要小心，不要随便改变父函数内部变量的值。
+
+5. JSONP
+解答：Web页面上调用js文件时不受是否跨域的影响（不仅如此，凡是拥有"src"这个属性的标签都拥有跨域的能力，比如`<script>、<img>、<iframe>`）;
+所以可以在远程服务器上把数据包裹成js文件传过来。JSONP协议的一个要点就是允许用户传递一个callback参数给服务端，
+然后服务端返回数据时会将这个callback参数作为函数名来包裹住JSON数据，这样客户端写一个同样名字的函数，就可以随意自动处理返回数据了。
+ajax和jsonp其实本质上是不同的东西。ajax的核心是通过XmlHttpRequest获取非本页内容，而jsonp的核心则是动态添加`<script>`标签来调用服务器提供的js脚本。
+因为jsonp的原理是动态添加`<script>`标签使其可以跨域访问。而`<script>`请求数据是get方式。所以不可以post。
+
+
+
